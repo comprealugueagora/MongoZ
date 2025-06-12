@@ -1,4 +1,47 @@
-# Mongoku
+# MongoZ  
+
+🚀 **A modern, streamlined fork of Mongoku, built for rapid development and an active community!**  
+
+**MongoZ** is a fork of the original [Mongoku](https://github.com/huggingface/Mongoku) project, created by **Hugging Face**. We'd like to extend our heartfelt thanks to the Hugging Face team for their foundational work—without it, this evolution wouldn't be possible. 🎉  
+
+Our mission is to breathe new life into the project with ongoing improvements, faster community support, and dedicated tools for **Compre & Alugue Agora** developers.  
+
+## Why MongoZ?  
+
+✔ **Active maintenance** – While the original Mongoku receives sporadic updates, we prioritize consistent evolution.  
+✔ **Dev-first focus** – Enhancements designed for real-world productivity.  
+✔ **Simplified integration** – Quick setup and tailored support for your workflow.  
+✔ **Community-driven** – Faster issue resolution and open doors for contributions!  
+
+📢 **We invite Hugging Face and all MongoDB enthusiasts to collaborate with us!** Let's shape MongoZ into something even greater together.  
+
+---
+
+✨ *MongoZ: The minimalist web console for MongoDB, by devs, for devs.*  
+
+---
+
+## Quick Links  
+
+🔹 [Installation Guide](#installation)  
+🔹 [Roadmap](#roadmap)  
+🔹 [How to Contribute](CONTRIBUTING.md)  
+
+---
+
+**Welcome to MongoZ!**  
+*(Team Compre & Alugue Agora & Open-Source Community)*  
+
+---
+
+## Badges (Optional - Uncomment to use)
+<!--
+[![License](https://img.shields.io/github/license/yourusername/mongoz)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
+[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/yourusername/mongoz/graphs/commit-activity)
+-->
+
+### Architecture
 
 MongoDB client for the web. Query your data directly from your browser. You can host it locally,
 or anywhere else, for you and your team.
@@ -8,7 +51,7 @@ operations, including sort/skip/limit. Built on TypeScript/Node.js/Angular.
 
 ### Demo
 
-![mongoku](https://huggingface.co/landing/assets/mongoku/mongoku-demo.gif)
+
 
 ### Install & Run
 
@@ -16,19 +59,19 @@ This is the easy and recommended way of installing and running Mongoku.
 
 ```
 # Install
-npm install -g mongoku
+npm install -g mongoz
 
 # Run from your current terminal
-mongoku start
+mongoz start
 ```
 
-You can also run Mongoku as a daemon, using either [PM2](https://github.com/Unitech/pm2) or
+You can also run MongoZ as a daemon, using either [PM2](https://github.com/Unitech/pm2) or
 [Forever](https://github.com/foreverjs/forever).
 
 ```
-mongoku start --pm2
+mongoz start --pm2
 # or
-mongoku start --forever
+mongoz start --forever
 ```
 
 ### Docker
@@ -36,10 +79,10 @@ mongoku start --forever
 #### Using the Docker HUB image
 
 ```
-docker run -d --name mongoku -p 3100:3100 huggingface/mongoku
+docker run -d --name mongoz -p 3100:3100 comprealugueagora/mongoz
 
 # Run with customized default hosts
-docker run -d --name mongoku -p 3100:3100 --env MONGOKU_DEFAULT_HOST="mongodb://user:password@myhost.com:8888" huggingface/mongoku
+docker run -d --name mongoz -p 3100:3100 --env MONGOZ_DEFAULT_HOST="mongodb://user:password@myhost.com:8888" comprealugueagora/mongoz
 ```
 
 #### Build your own image
@@ -48,15 +91,15 @@ If you want to build your own docker image, just clone this repository and run t
 
 ```
 # Build
-docker build -t yournamehere/mongoku .
+docker build -t yournamehere/mongoz .
 
 # Run
-docker run -d --name mongoku -p 3100:3100 yournamehere/mongoku
+docker run -d --name mongoz -p 3100:3100 yournamehere/mongoz
 ```
 
 ### Manual Build
 
-If you want to manually build and run mongoku, just clone this repository and run the following:
+If you want to manually build and run mongoz, just clone this repository and run the following:
 
 ```bash
 # Install the angular cli if you don't have it already
@@ -81,17 +124,17 @@ node dist/server.js
 You can also specify a few things using environment variables:
 ```
 # Use some customized default hosts (Default = localhost:27017)
-MONGOKU_DEFAULT_HOST="mongodb://user:password@localhost:27017;localhost:27017"
+MONGOZ_DEFAULT_HOST="mongodb://user:password@localhost:27017;localhost:27017"
 
 # Use another port. (Default = 3100)
-MONGOKU_SERVER_PORT=8000
+MONGOZ_SERVER_PORT=8000
 
 # Use a specific file to store hosts (Default = $HOME/.mongoku.db)
-MONGOKU_DATABASE_FILE="/tmp/mongoku.db"
+MONGOZ_DATABASE_FILE="/tmp/mongoku.db"
 
 # Timeout before falling back to estimated documents count in ms (Default = 5000)
-MONGOKU_COUNT_TIMEOUT=1000
+MONGOZ_COUNT_TIMEOUT=1000
 
 # Read-only mode
-MONGOKU_READ_ONLY_MODE=true
+MONGOZ_READ_ONLY_MODE=true
 ```
