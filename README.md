@@ -130,4 +130,8 @@ MONGOZ_COUNT_TIMEOUT=1000
 
 # Read-only mode
 MONGOZ_READ_ONLY_MODE=true
+
+# Exclude specific databases from appearing in the UI (comma-separated list)
+# Useful to hide internal or system databases like 'admin', 'config', or 'local'
+MONGOKU_EXCLUDE_DATABASES="admin,config,local"
 ```
