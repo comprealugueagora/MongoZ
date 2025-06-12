@@ -64,6 +64,10 @@ export class Collection {
       _id: new MongoDb.ObjectId(document)
     });
   }
+  
+  async removeAll() {
+  await this._collection.deleteMany({});
+}
 
   count(query) {
     if (query && Object.keys(query).length > 0) {
