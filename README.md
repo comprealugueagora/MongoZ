@@ -34,13 +34,6 @@ Our mission is to breathe new life into the project with ongoing improvements, f
 
 ---
 
-## Badges (Optional - Uncomment to use)
-<!--
-[![License](https://img.shields.io/github/license/yourusername/mongoz)](LICENSE)
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
-[![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/yourusername/mongoz/graphs/commit-activity)
--->
-
 ### Architecture
 
 MongoDB client for the web. Query your data directly from your browser. You can host it locally,
