@@ -140,6 +140,26 @@ api.delete('/servers/:server/databases/:database/collections/:collection/documen
   }
 });
 
+api.delete('/servers/:server/databases/:database/collections/:collection', writeEnabled, async (req, res, next) => {
+  const { server, database, collection } = req.params;
+
+  try {
+    const c = await factory.mongoManager.getCollection(server, database, collection);
+    if (!c) {
+      return next(new Error(`Collection not found: ${server}.${database}.${collection}`));
+    }
+
+    await c.removeAll();
+
+    return res.json({
+      ok: true,
+      message: `All documents in ${collection} deleted successfully.`
+    });
+  } catch (err) {
+    return next(err);
+  }
+});
+
 api.get('/servers/:server/databases/:database/collections/:collection/query', async (req, res, next) => {
   const server     = req.params.server;
   const database   = req.params.database;
