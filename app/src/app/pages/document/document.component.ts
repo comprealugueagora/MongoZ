@@ -19,6 +19,7 @@ export class DocumentComponent implements OnInit {
   item;
 
   loading = true;
+  isDocumentsPage = false;
 
   constructor(
     private router:         Router,
@@ -76,5 +77,4 @@ export class DocumentComponent implements OnInit {
         ])
       });
   }
-
 }

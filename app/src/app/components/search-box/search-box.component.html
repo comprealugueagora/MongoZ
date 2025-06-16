@@ -40,4 +40,13 @@
   <div class="confirm-search btn" (click)="go()">
     GO!
   </div>
+
+  <button
+    *ngIf="isDocumentsPage"
+    class="btn btn-danger btn-deleteAll"
+    (click)="onDeleteAllClicked()"
+  >
+    Excluir todos os documentos
+  </button>
+
 </div>
