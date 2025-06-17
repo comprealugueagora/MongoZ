@@ -15,7 +15,10 @@ export interface SearchParams {
 })
 export class SearchBoxComponent implements OnInit, OnChanges {
   @Output() search = new EventEmitter();
+  @Output() deleteAll = new EventEmitter<void>();
+
   @Input()  params: SearchParams;
+  @Input() isDocumentsPage: boolean = false;
 
   private ready = false;
   private defaults = {
@@ -79,5 +82,9 @@ export class SearchBoxComponent implements OnInit, OnChanges {
     if (event.keyCode === 13) {
       this.go();
     }
+  }
+
+  onDeleteAllClicked() {
+    this.deleteAll.emit();
   }
 }

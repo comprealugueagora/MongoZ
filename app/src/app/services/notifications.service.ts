@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Subject }    from 'rxjs';
 
 interface Notification {
-  type:    "error";
+  type:    "error" | "success";
   message: string;
 }
 
@@ -20,6 +20,14 @@ export class NotificationsService {
       message: message
     };
 
+    this.notificationsSource.next(notif);
+  }
+
+  notifySuccess(message: string) {
+    const notif: Notification = {
+      type: 'success',
+      message: message
+    };
     this.notificationsSource.next(notif);
   }
 }

@@ -24,6 +24,11 @@
 		background: var(--error);
 	}
 
+
+	.notification.success {
+		background: var(--success);
+	}
+
 	.notification.show {
 		opacity: 1;
 	}

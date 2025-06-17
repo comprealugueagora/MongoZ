@@ -19,6 +19,8 @@ export class ExploreComponent implements OnInit {
   collection: string;
 
   readOnly = false;
+  isDocumentsPage = false;
+
   params: Partial<SearchParams>;
   loading    = {
     content: true,
@@ -74,7 +76,13 @@ export class ExploreComponent implements OnInit {
       this.params = {
         query, sort, limit, skip, project
       };
+
+      this.isDocumentsPage = !!(this.server && this.database && this.collection);
     });
+  }
+
+  get hasItems(): boolean {
+    return !!this.items?.length;
   }
 
   update(upd: boolean = true) {
@@ -172,6 +180,28 @@ export class ExploreComponent implements OnInit {
 
   get hasNext() {
     return this.count.start + this.items.length < this.count.total;
+  }
+
+  deleteAllDocuments() {
+    if (!confirm('Tem certeza que deseja excluir TODOS os documentos desta coleção?')) return;
+
+    this.mongoDb.deleteAll(this.server, this.database, this.collection)
+      .subscribe({
+        next: (res: any) => {
+          if (res.ok) {
+            this.items = [];
+            this.count.total = 0;
+            this.count.start = 0;
+            this.notifService.notifySuccess(res.message);
+          } else {
+            this.notifService.notifySuccess('Error deleting documents.');
+          }
+        },
+        error: (err) => {
+          this.notifService.notifySuccess('Error deleting documents.');
+          console.error(err);
+        }
+      });
   }
 
   next() {
